@@ -1,19 +1,19 @@
 //
-//  AppDelegate.m
+//  UMAppDelegate.m
 //  UdpMobile
 //
 //  Created by Javier Fuchs on 9/24/16.
 //  Copyright © 2016 Fuchs. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "UMAppDelegate.h"
 #import "UdpManager.h"
 
-@interface AppDelegate ()
+@interface UMAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation UMAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -38,8 +38,6 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    
-    [[UdpManager sharedInstance] sendMessage:@"prueba" toHost:@"192.168.2.5" port:5555];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

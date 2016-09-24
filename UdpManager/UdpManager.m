@@ -10,8 +10,6 @@
 
 #import <GCDAsyncUdpSocket.h>
 
-#define kUdpManagerDidReceiveMessageNotification @"kUdpManagerDidReceiveMessageNotification"
-
 @interface UdpManager() <GCDAsyncUdpSocketDelegate>
 @property (nonatomic, strong) GCDAsyncUdpSocket *udpSocket;
 @property (nonatomic) NSInteger tag;
@@ -86,33 +84,39 @@
     return _udpSocket;
 }
 
-- (void)sendMessage:(NSString *)message toHost:(NSString *)host port:(int)port {
-    
+- (void)sendMessage:(NSString *)message toHost:(NSString *)host port:(int)port failure:(UdpFailureCompletion)failure success:(UdpSuccessCompletion)success {
+
     NSAssert(!self.isConfiguredAsServer, @"This is a server, it cannot use this method");
     
-    NSAssert(self.isConfigured, @"Client socket is not configured yet");
-    
     if (!self.isConfigured) {
+        failure([NSError errorWithDomain:@"UdpManager"
+                                       code:100
+                                   userInfo:@{NSLocalizedDescriptionKey:@"Client socket is not configured yet"}]);
         return;
     }
     
     if (port <= 0 || port > 65535) {
-        NSAssert(NO, @"Illegal port");
+        failure([NSError errorWithDomain:@"UdpManager"
+                                       code:101
+                                   userInfo:@{NSLocalizedDescriptionKey:@"Illegal port"}]);
         return;
     }
 
     if ([message length] == 0) {
-        NSAssert(NO, @"empty message");
+        failure([NSError errorWithDomain:@"UdpManager"
+                                       code:102
+                                   userInfo:@{NSLocalizedDescriptionKey:@"Empty message"}]);
         return;
     }
     
     NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
+    self.tag++;
     [self.udpSocket sendData:data toHost:host port:port withTimeout:-1 tag:self.tag];
     
     NSLog(@"Sending Message = %@, to Host = %@, port = %d, tag = %ld", message, host, port, self.tag);
     
-    self.tag++;
-    
+    success(self.tag);
+               
 }
 
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didSendDataWithTag:(long)tag
@@ -135,7 +139,6 @@ withFilterContext:(id)filterContext
     if (msg)
     {
         NSLog(@"received msg = [%@](%ld)", msg, [msg length]);
-        [[NSNotificationCenter defaultCenter] postNotificationName:kUdpManagerDidReceiveMessageNotification object:msg];
         self.numberOfKnownMessagesReceived++;
     }
     else

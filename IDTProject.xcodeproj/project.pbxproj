@@ -12,8 +12,8 @@
 		950F37BF1D96F2820022ADA0 /* UdpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 950F37BD1D96F2690022ADA0 /* UdpManager.m */; };
 		950F37C01D96F2830022ADA0 /* UdpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 950F37BD1D96F2690022ADA0 /* UdpManager.m */; };
 		952F54F91D96E87800CB738D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 952F54F81D96E87800CB738D /* main.m */; };
-		952F54FC1D96E87800CB738D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 952F54FB1D96E87800CB738D /* AppDelegate.m */; };
-		952F54FF1D96E87800CB738D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 952F54FE1D96E87800CB738D /* ViewController.m */; };
+		952F54FC1D96E87800CB738D /* UMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 952F54FB1D96E87800CB738D /* UMAppDelegate.m */; };
+		952F54FF1D96E87800CB738D /* UMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 952F54FE1D96E87800CB738D /* UMViewController.m */; };
 		952F55021D96E87800CB738D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 952F55001D96E87800CB738D /* Main.storyboard */; };
 		952F55041D96E87800CB738D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 952F55031D96E87800CB738D /* Assets.xcassets */; };
 		952F55071D96E87800CB738D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 952F55051D96E87800CB738D /* LaunchScreen.storyboard */; };
@@ -69,10 +69,10 @@
 		950F37BD1D96F2690022ADA0 /* UdpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UdpManager.m; sourceTree = "<group>"; };
 		952F54F51D96E87800CB738D /* UdpMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UdpMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		952F54F81D96E87800CB738D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		952F54FA1D96E87800CB738D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		952F54FB1D96E87800CB738D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		952F54FD1D96E87800CB738D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		952F54FE1D96E87800CB738D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		952F54FA1D96E87800CB738D /* UMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMAppDelegate.h; sourceTree = "<group>"; };
+		952F54FB1D96E87800CB738D /* UMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMAppDelegate.m; sourceTree = "<group>"; };
+		952F54FD1D96E87800CB738D /* UMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMViewController.h; sourceTree = "<group>"; };
+		952F54FE1D96E87800CB738D /* UMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMViewController.m; sourceTree = "<group>"; };
 		952F55011D96E87800CB738D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		952F55031D96E87800CB738D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		952F55061D96E87800CB738D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -182,10 +182,10 @@
 		952F54F61D96E87800CB738D /* UdpMobile */ = {
 			isa = PBXGroup;
 			children = (
-				952F54FA1D96E87800CB738D /* AppDelegate.h */,
-				952F54FB1D96E87800CB738D /* AppDelegate.m */,
-				952F54FD1D96E87800CB738D /* ViewController.h */,
-				952F54FE1D96E87800CB738D /* ViewController.m */,
+				952F54FA1D96E87800CB738D /* UMAppDelegate.h */,
+				952F54FB1D96E87800CB738D /* UMAppDelegate.m */,
+				952F54FD1D96E87800CB738D /* UMViewController.h */,
+				952F54FE1D96E87800CB738D /* UMViewController.m */,
 				952F55001D96E87800CB738D /* Main.storyboard */,
 				952F55031D96E87800CB738D /* Assets.xcassets */,
 				952F55051D96E87800CB738D /* LaunchScreen.storyboard */,
@@ -662,8 +662,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				952F54FF1D96E87800CB738D /* ViewController.m in Sources */,
-				952F54FC1D96E87800CB738D /* AppDelegate.m in Sources */,
+				952F54FF1D96E87800CB738D /* UMViewController.m in Sources */,
+				952F54FC1D96E87800CB738D /* UMAppDelegate.m in Sources */,
 				952F54F91D96E87800CB738D /* main.m in Sources */,
 				950F37C01D96F2830022ADA0 /* UdpManager.m in Sources */,
 			);

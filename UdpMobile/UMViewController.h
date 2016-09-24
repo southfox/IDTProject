@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  UMViewController.h
 //  UdpMobile
 //
 //  Created by Javier Fuchs on 9/24/16.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface UMViewController : UIViewController
 
 
 @end
