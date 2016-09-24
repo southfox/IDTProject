@@ -26,7 +26,12 @@
     
     self.hostField.text = @"192.168.2.5";
     self.portField.text = @"5555";
-    self.messageField.text = @"Enter a message!";
+    self.messageField.text = @"Hey 😀!";
+    
+    [self addObserver];
+	@onExit {
+        [self removeObserver];
+	};
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,8 +44,7 @@
      NSString *message = [NSString stringWithFormat:@"Messages Sent: %ld - Messages Not Sent: %ld",
                           mgr.numberOfMessagesSent,
                           mgr.numberOfMessagesNotSent];
-    [self showInfoWithBlock:nil title:@"Info"
-                    message:message];
+    [self showInfoWithTitle:@"Info" message:message];
 }
 
 
@@ -84,10 +88,7 @@
         @strongify(self);
         [self showWarningWithBlock:nil title:@"Udp Manager error" message:error.userInfo[NSLocalizedDescriptionKey]];
      } success:^(NSInteger tag) {
-        @strongify(self);
-         NSString *message = [NSString stringWithFormat:@"Sending message #%ld", (long)tag];
-        [self showInfoWithBlock:nil title:@"Congratulations"
-                        message:message];
+         NSLog(@"Sending message with tag #%ld", (long)tag);
     }];
 }
 
@@ -111,8 +112,26 @@
     [self showAlertWithBlock:actionBlock title:title message:message isWarning:YES];
 }
 
-- (void)showInfoWithBlock:(SCLActionBlock)actionBlock title:(NSString *)title message:(NSString *)message {
-    [self showAlertWithBlock:actionBlock title:title message:message isWarning:NO];
+- (void)showInfoWithTitle:(NSString *)title message:(NSString *)message {
+    [self showAlertWithBlock:nil title:title message:message isWarning:NO];
 }
+
+#pragma mark -
+#pragma mark Notifications 
+
+- (void)removeObserver {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)addObserver {
+    @weakify(self)
+    [[NSNotificationCenter defaultCenter] addObserverForName:kUdpManagerDidReceiveMessageNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        @strongify(self)
+        
+        NSString *messageText = (NSString *)note.object;
+        [self showInfoWithTitle:@"Success" message:messageText];
+    }];
+}
+
 
 @end

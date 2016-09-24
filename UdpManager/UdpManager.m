@@ -140,6 +140,7 @@ withFilterContext:(id)filterContext
     {
         NSLog(@"received msg = [%@](%ld)", msg, [msg length]);
         self.numberOfKnownMessagesReceived++;
+        [[NSNotificationCenter defaultCenter] postNotificationName:kUdpManagerDidReceiveMessageNotification object:msg];
     }
     else
     {

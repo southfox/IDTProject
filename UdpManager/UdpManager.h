@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define kUdpManagerDidReceiveMessageNotification @"kUdpManagerDidReceiveMessageNotification"
+
 typedef void (^UdpFailureCompletion)(NSError *error);
 
 typedef void (^UdpSuccessCompletion)(NSInteger tag);
