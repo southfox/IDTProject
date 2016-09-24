@@ -60,13 +60,21 @@ MyClass *myClass = [[[[MyClass alloc] init] autorelease] autorelease];
 ### Answer
 Autorelease just decrements the receiver’s retain count at the end of the current autorelease pool block.
 Any object sent an autorelease message inside the autorelease pool block is released at the end of the block.
-malloc: *** error for object 0x10922ed40: pointer being freed was not allocated ***
 It will crash. You are sending more than one autorelease, and the object after one autorelease was not allocated.
-It's the same as:
+I've implemented a test for this, it's called IDTAutoreleaseNonArc, you can play with it, it shows clearly that in line 35 where myClass is initialized and double autoreleased the test does not crash, it crash after line #36, in the end of the block.
 ```objective-c
-MyClass *myClass = [[MyClass alloc] init]; 
-[ball0 release];
-[ball0 release];
+#33 - (void)testExampleDoubleAutorelease {
+#34    NSLog(@"%s:%d", __FUNCTION__, __LINE__);
+#35    __unused MyClass *myClass = [[[[MyClass alloc] init] autorelease] autorelease];
+#36    NSLog(@"%s:%d", __FUNCTION__, __LINE__);
+#37}
+```
+You can see the result here:
+```
+2016-09-24 18:36:15.778 UdpMobile[56973:7752376] -[IDTAutoreleaseNonArc testExampleDoubleAutorelease]:34
+2016-09-24 18:36:15.778 UdpMobile[56973:7752376] -[IDTAutoreleaseNonArc testExampleDoubleAutorelease]:36
+UdpMobile(56973,0x10a62a000) malloc: *** error for object 0x7fbd8bfd4360: pointer being freed was not allocated
+*** set a breakpoint in malloc_error_break to debug
 ```
 
 ## Implemented UDP

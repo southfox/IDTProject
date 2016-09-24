@@ -27,6 +27,7 @@
 		9538DDBC1D96A609001E87C9 /* UdpDesktopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9538DDBB1D96A609001E87C9 /* UdpDesktopTests.m */; };
 		9538DDC71D96A609001E87C9 /* UdpDesktopUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9538DDC61D96A609001E87C9 /* UdpDesktopUITests.m */; };
 		9538DDDA1D96AB2F001E87C9 /* IDTStringReverse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9538DDD91D96AB2F001E87C9 /* IDTStringReverse.m */; };
+		955CC52E1D9725EF00C7E9C8 /* IDTAutoreleaseNonArc.m in Sources */ = {isa = PBXBuildFile; fileRef = 955CC52D1D9725EF00C7E9C8 /* IDTAutoreleaseNonArc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 9538DDA11D96A608001E87C9;
 			remoteInfo = UdpDesktop;
+		};
+		955CC5301D9725EF00C7E9C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9538DD5D1D96A591001E87C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 952F54F41D96E87800CB738D;
+			remoteInfo = UdpMobile;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -102,6 +110,9 @@
 		9538DDD71D96AB2F001E87C9 /* IDTStringReverse.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IDTStringReverse.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9538DDD91D96AB2F001E87C9 /* IDTStringReverse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDTStringReverse.m; sourceTree = "<group>"; };
 		9538DDDB1D96AB2F001E87C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		955CC52B1D9725EF00C7E9C8 /* IDTAutoreleaseNonArc.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IDTAutoreleaseNonArc.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		955CC52D1D9725EF00C7E9C8 /* IDTAutoreleaseNonArc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDTAutoreleaseNonArc.m; sourceTree = "<group>"; };
+		955CC52F1D9725EF00C7E9C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B925B3DCA363036CA8A1FA67 /* Pods-UdpMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UdpMobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-UdpMobile/Pods-UdpMobile.release.xcconfig"; sourceTree = "<group>"; };
 		F560CC5F46BBC6525222B2FE /* Pods-UdpMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UdpMobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UdpMobile/Pods-UdpMobile.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +163,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9538DDD41D96AB2F001E87C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		955CC5281D9725EF00C7E9C8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -226,6 +244,7 @@
 			children = (
 				9538DDD21D96A70F001E87C9 /* Readme.md */,
 				9538DDD81D96AB2F001E87C9 /* IDTStringReverse */,
+				955CC52C1D9725EF00C7E9C8 /* IDTAutoreleaseNonArc */,
 				950F37BB1D96F2690022ADA0 /* UdpManager */,
 				9538DDA31D96A608001E87C9 /* UdpDesktop */,
 				9538DDBA1D96A609001E87C9 /* UdpDesktopTests */,
@@ -249,6 +268,7 @@
 				952F54F51D96E87800CB738D /* UdpMobile.app */,
 				952F550D1D96E87800CB738D /* UdpMobileTests.xctest */,
 				952F55181D96E87800CB738D /* UdpMobileUITests.xctest */,
+				955CC52B1D9725EF00C7E9C8 /* IDTAutoreleaseNonArc.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -301,6 +321,15 @@
 				9538DDDB1D96AB2F001E87C9 /* Info.plist */,
 			);
 			path = IDTStringReverse;
+			sourceTree = "<group>";
+		};
+		955CC52C1D9725EF00C7E9C8 /* IDTAutoreleaseNonArc */ = {
+			isa = PBXGroup;
+			children = (
+				955CC52D1D9725EF00C7E9C8 /* IDTAutoreleaseNonArc.m */,
+				955CC52F1D9725EF00C7E9C8 /* Info.plist */,
+			);
+			path = IDTAutoreleaseNonArc;
 			sourceTree = "<group>";
 		};
 		F59FCA2E48F1D7893C31110F /* Pods */ = {
@@ -446,6 +475,24 @@
 			productReference = 9538DDD71D96AB2F001E87C9 /* IDTStringReverse.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		955CC52A1D9725EF00C7E9C8 /* IDTAutoreleaseNonArc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 955CC5341D9725EF00C7E9C8 /* Build configuration list for PBXNativeTarget "IDTAutoreleaseNonArc" */;
+			buildPhases = (
+				955CC5271D9725EF00C7E9C8 /* Sources */,
+				955CC5281D9725EF00C7E9C8 /* Frameworks */,
+				955CC5291D9725EF00C7E9C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				955CC5311D9725EF00C7E9C8 /* PBXTargetDependency */,
+			);
+			name = IDTAutoreleaseNonArc;
+			productName = IDTAutoreleaseNonArc;
+			productReference = 955CC52B1D9725EF00C7E9C8 /* IDTAutoreleaseNonArc.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -481,6 +528,10 @@
 						CreatedOnToolsVersion = 7.3.1;
 						TestTargetID = 9538DD641D96A591001E87C9;
 					};
+					955CC52A1D9725EF00C7E9C8 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 952F54F41D96E87800CB738D;
+					};
 				};
 			};
 			buildConfigurationList = 9538DD601D96A591001E87C9 /* Build configuration list for PBXProject "IDTProject" */;
@@ -503,6 +554,7 @@
 				952F54F41D96E87800CB738D /* UdpMobile */,
 				952F550C1D96E87800CB738D /* UdpMobileTests */,
 				952F55171D96E87800CB738D /* UdpMobileUITests */,
+				955CC52A1D9725EF00C7E9C8 /* IDTAutoreleaseNonArc */,
 			);
 		};
 /* End PBXProject section */
@@ -556,6 +608,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9538DDD51D96AB2F001E87C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		955CC5291D9725EF00C7E9C8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -720,6 +779,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		955CC5271D9725EF00C7E9C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				955CC52E1D9725EF00C7E9C8 /* IDTAutoreleaseNonArc.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -742,6 +809,11 @@
 			isa = PBXTargetDependency;
 			target = 9538DDA11D96A608001E87C9 /* UdpDesktop */;
 			targetProxy = 9538DDC31D96A609001E87C9 /* PBXContainerItemProxy */;
+		};
+		955CC5311D9725EF00C7E9C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 952F54F41D96E87800CB738D /* UdpMobile */;
+			targetProxy = 955CC5301D9725EF00C7E9C8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1043,6 +1115,30 @@
 			};
 			name = Release;
 		};
+		955CC5321D9725EF00C7E9C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = IDTAutoreleaseNonArc/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fuchs.idt.IDTAutoreleaseNonArc;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UdpMobile.app/UdpMobile";
+			};
+			name = Debug;
+		};
+		955CC5331D9725EF00C7E9C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = IDTAutoreleaseNonArc/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fuchs.idt.IDTAutoreleaseNonArc;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UdpMobile.app/UdpMobile";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1117,6 +1213,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		955CC5341D9725EF00C7E9C8 /* Build configuration list for PBXNativeTarget "IDTAutoreleaseNonArc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				955CC5321D9725EF00C7E9C8 /* Debug */,
+				955CC5331D9725EF00C7E9C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
