@@ -72,4 +72,19 @@ MyClass *myClass = [[MyClass alloc] init];
 
 ### Answer
 
-## 3rd party components
+## 3rd party components used in this project.
+
+### CocoaSyncSocket (Mac OS and iOS)
+
+https://cocoapods.org/pods/CocoaAsyncSocket
+CocoaAsyncSocket provides easy-to-use and powerful asynchronous socket libraries for Mac and iOS. The classes are described below.
+
+### libextobjc (Mac OS and iOS)
+
+https://cocoapods.org/pods/libextobjc
+pod 'libextobjc', '~> 0.4': @onExit, @stronfigy, @weakify are the extensions I'm using here, I found very usefull @onExit to clean up some memory, unsubscribe from observers, etc. @weakify/@strongify for to work easy and fast with weak variables in blocks and prevent retain cycles.
+
+### SCLAlertView (only in iOS)
+
+https://cocoapods.org/pods/SCLAlertView-Objective-C
+- pod 'SCLAlertView-Objective-C', '~> 1.0': the alerts are really nice.

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "UdpManager.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [[UdpManager sharedInstance] configureManagerAsClient];
     return YES;
 }
 
@@ -36,6 +38,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    [[UdpManager sharedInstance] sendMessage:@"prueba" toHost:@"192.168.2.5" port:5555];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

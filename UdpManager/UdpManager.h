@@ -12,4 +12,9 @@
 
 + (UdpManager *)sharedInstance;
 
+- (void)configureManagerAsClient;
+- (void)configureManagerAsServer;
+
+- (void)sendMessage:(NSString *)message toHost:(NSString *)host port:(int)port;
+
 @end
