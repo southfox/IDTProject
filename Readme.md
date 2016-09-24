@@ -5,10 +5,13 @@ IDT test
 Implementation in Objective-C. The code is documented answering "why" (more important than "what"). 
 
 # Porpuse
-3 objetives
+3 objectives: reverse method, autorelease and client-server UDP implementation.
 
 ## Reverse method
 1. Function which takes a string as argument and returns the string reversed. For example, "abcdef" becomes "fedcba". Not using the reverse method. It work with emojis.
+
+### Answer
+
 ```objective-c
 /// Reverse string method using Objective-C
 /// Suports unicode and emoji characters
@@ -47,10 +50,9 @@ Test Case '-[IDTStringReverse testReverseShortEmojiString]' started.
 ```
 
 
-### Answer
 
 ## Non-ARC with double autorelease
-2. Explain what happens when the following code is executed (ARC being disabled in the compiler):
+* Explain what happens when the following code is executed (ARC being disabled in the compiler):
 
 ```objective-c
 MyClass *myClass = [[[[MyClass alloc] init] autorelease] autorelease];
@@ -68,9 +70,23 @@ MyClass *myClass = [[MyClass alloc] init];
 ```
 
 ## Implemented UDP
-5. Implement a UDP echo server on a desktop OS & programming language of choice (eg. some unix + python) and a UDP echo client (with UI!) for iOS to test your echo server.
+* Implement a UDP echo server on a desktop OS & programming language of choice (eg. some unix + python) and a UDP echo client (with UI!) for iOS to test your echo server.
 
 ### Answer
+
+* Using the same IDTProject I've been implemented 2 applications that use the same Udp manager:
+1. UdpMobile: it's an iOS app that send messages and waits receives responses from the server to know if the message is received.
+
+![BackgroundImage](https://github.com/southfox/IDTProject//master/ScreenShots/ScreenShot2.png)_
+![BackgroundImage](https://github.com/southfox/IDTProject//master/ScreenShots/ScreenShot3.png)_
+
+2. UdpDesktop: it's a Mac OS app that shows 
+
+![BackgroundImage](https://github.com/southfox/IDTProject//master/ScreenShots/ScreenShot0.png)_
+![BackgroundImage](https://github.com/southfox/IDTProject//master/ScreenShots/ScreenShot1.png)_
+
+
+The UdpManager is implemented using CocoaAsyncSocket, and is very easy to use, works with Mac OS and iOS at the same time. I've been testing with my Mac OS as a server and with iPad, iPhone 6, iPhone 5 and the Simulator.
 
 ## 3rd party components used in this project.
 

@@ -11,13 +11,19 @@
 #import <GCDAsyncUdpSocket.h>
 
 @interface UdpManager() <GCDAsyncUdpSocketDelegate>
+/// the udp socket
 @property (nonatomic, strong) GCDAsyncUdpSocket *udpSocket;
+/// message tag number
 @property (nonatomic) NSInteger tag;
 @property (nonatomic) NSInteger numberOfUnknownMessagesReceived;
 @property (nonatomic) NSInteger numberOfKnownMessagesReceived;
 @property (nonatomic) NSInteger numberOfMessagesSent;
 @property (nonatomic) NSInteger numberOfMessagesNotSent;
+
+/// With this flag we know the UdpManager is usable for send/receive
 @property (nonatomic) BOOL isConfigured;
+
+/// Flag to know if this is the server or not
 @property (nonatomic) BOOL isConfiguredAsServer;
 @end
 
@@ -46,9 +52,9 @@
     return self;
 }
 
-- (void)configureManagerAsServer {
+- (void)configureManagerAsServerUsingPort:(NSInteger)port {
     self.isConfiguredAsServer = YES;
-    [self configureUdpWithPort:5555];
+    [self configureUdpWithPort:port];
 }
 
 - (void)configureManagerAsClient {
@@ -59,6 +65,8 @@
 
 - (void)configureUdpWithPort:(NSInteger)port {
 
+    [self.udpSocket close];
+    
     NSError *error = nil;
     if (![self.udpSocket bindToPort:port error:&error])
     {
@@ -76,6 +84,7 @@
 }
 
 
+/// Lazy initiazliation of the udpSocket
 - (GCDAsyncUdpSocket *)udpSocket {
     if (_udpSocket == nil) {
         _udpSocket = [[GCDAsyncUdpSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
@@ -84,6 +93,9 @@
     return _udpSocket;
 }
 
+/// Only used by the client
+/// Send a message to the defined host, port.
+/// 2 blocks for failure and success are sent, to check parameters only, doesn't do any async work
 - (void)sendMessage:(NSString *)message toHost:(NSString *)host port:(int)port failure:(UdpFailureCompletion)failure success:(UdpSuccessCompletion)success {
 
     NSAssert(!self.isConfiguredAsServer, @"This is a server, it cannot use this method");

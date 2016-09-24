@@ -12,6 +12,7 @@
 
 @implementation ViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -20,6 +21,8 @@
 	@onExit {
         [self removeObserver];
 	};
+    [self.portField setStringValue:@"5555"];
+    [[UdpManager sharedInstance] configureManagerAsServerUsingPort:[self.portField intValue]];
 }
 
 - (void)setRepresentedObject:(id)representedObject {
@@ -58,6 +61,11 @@
     [[scrollView documentView] scrollPoint:newScrollOrigin];
 }
 
+- (IBAction)restartAction:(id)sender {
+    int port = [self.portField intValue];
+
+    [[UdpManager sharedInstance] configureManagerAsServerUsingPort:port];
+}
 
 #pragma mark -
 #pragma mark Notifications 
@@ -75,5 +83,6 @@
         [self updateMessageReceived:messageText];
     }];
 }
+
 
 @end
